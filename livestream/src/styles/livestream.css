@@ -1,0 +1,21 @@
+.livestream-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #video-container {
+    width: 600px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+  }
+  
+  button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
