@@ -9,7 +9,7 @@ export default function streamReducer(state = initialState, action) {
     case "ADD_VIEWER":
       return { ...state, viewers: state.viewers + 1 };
     case "REMOVE_VIEWER":
-      return { ...state, viewers: state.viewers - 1 };
+      return { ...state, viewers: Math.max(0, state.viewers - 1) };
     default:
       return state;
   }

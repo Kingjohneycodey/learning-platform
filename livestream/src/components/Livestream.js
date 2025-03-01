@@ -5,12 +5,12 @@ import { startStream, stopStream } from "../actions/streamActions";
 import "../styles/livestream.css";
 
 const APP_ID = process.env.AGORA_APP_ID;
-const CHANNEL_NAME = "livestream";
-const TOKEN = process.env.AGORA_TEMP_TOKEN
+const CHANNEL_NAME = process.env.CHANNEL_NAME;
+const TOKEN = process.env.AGORA_TEMP_TOKEN;
 
 const Livestream = () => {
   const dispatch = useDispatch();
-  const isStreaming = useSelector((state) => state.stream.isStreaming);
+  const isStreaming = useSelector((state) => state.livestream?.isStreaming ?? false); // Access stream key here
   const videoRef = useRef(null);
   const client = useRef(AgoraRTC.createClient({ mode: "live", codec: "vp8" }));
   const localTracks = useRef([]);
@@ -24,7 +24,7 @@ const Livestream = () => {
   };
 
   const stopLive = async () => {
-    localTracks.current.forEach(track => track.stop() && track.close());
+    localTracks.current.forEach((track) => track.stop() && track.close());
     await client.current.leave();
     dispatch(stopStream());
   };

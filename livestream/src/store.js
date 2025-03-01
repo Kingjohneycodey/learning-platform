@@ -1,17 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { thunk } from "redux-thunk";
+import { thunk } from "redux-thunk"; // Use named import
 import { combineReducers } from "redux";
 import chatReducer from "./reducers/chatReducer";
-import livestreamReducer from "./reducers/livestreamReducer";
+import streamReducer from "./reducers/streamReducer";
 
 const rootReducer = combineReducers({
   chat: chatReducer,
-  livestream: livestreamReducer,
+  livestream: streamReducer,
 });
 
 const store = configureStore({
   reducer: rootReducer,
-  middleware: [thunk],
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
 });
 
 export default store;

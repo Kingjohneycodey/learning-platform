@@ -1,9 +1,9 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
-import store from './store';
-import Livestream from './components/Livestream';
-import Chat from './components/Chat';
+import React from "react";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import store from "./store";
+import Livestream from "./components/Livestream";
+import Chat from "./components/Chat";
 
 function App() {
   return (
