@@ -5,7 +5,7 @@ const socketIo = require("socket.io");
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, { cors: { origin: "*" } });
-const PORT = process.env.PORT || 5001; // Change 5000 to 5001
+const PORT = process.env.PORT || 5001;
 
 io.on("connection", (socket) => {
   console.log("New user connected");
